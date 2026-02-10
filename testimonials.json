@@ -1,0 +1,42 @@
+[
+  {
+    "author": "Sarah Chen",
+    "title": "VP Product, Series B SaaS",
+    "company": "TechFlow",
+    "image": "https://i.pravatar.cc/150?u=sarah-chen",
+    "quote": "This framework saved our team. We went from chaotic roadmapping to 40% revenue growth in 4 months. Everyone's aligned now.",
+    "verified": true
+  },
+  {
+    "author": "Marcus Rodriguez",
+    "title": "CEO, E-commerce Startup",
+    "company": "ShopFlow",
+    "image": "https://i.pravatar.cc/150?u=marcus-rodriguez",
+    "quote": "Stakeholder alignment was killing us. Got a framework that actually works. Implementation took 2 weeks. Results were immediate.",
+    "verified": true
+  },
+  {
+    "author": "Emily Watson",
+    "title": "Director of Product, Fintech",
+    "company": "PaymentCo",
+    "image": "https://i.pravatar.cc/150?u=emily-watson",
+    "quote": "The roadmap planning session alone was worth the investment. Having a framework everyone understands changed everything.",
+    "verified": true
+  },
+  {
+    "author": "James Liu",
+    "title": "Senior PM, Growth Stage Startup",
+    "company": "DataStack",
+    "image": "https://i.pravatar.cc/150?u=james-liu",
+    "quote": "Went from 25 points/sprint to 40 points/sprint just by clarifying priorities. Team morale improved dramatically.",
+    "verified": true
+  },
+  {
+    "author": "Lisa Kim",
+    "title": "Founder & CEO",
+    "company": "CloudTools",
+    "image": "https://i.pravatar.cc/150?u=lisa-kim",
+    "quote": "First time someone explained product strategy in a way that made sense to our whole leadership team. Game changer.",
+    "verified": true
+  }
+]
