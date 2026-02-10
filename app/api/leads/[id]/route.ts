@@ -3,8 +3,11 @@ import { createServerClient } from '@/lib/supabase'
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  props: { params: Promise<{ id: string }> }
 ) {
+  const { params } = props
+  const { id } = await params
+  
   try {
     const body = await request.json()
     const supabase = createServerClient()
@@ -12,7 +15,7 @@ export async function PATCH(
     const { data, error } = await supabase
       .from('leads')
       .update(body)
-      .eq('id', params.id)
+      .eq('id', id)
       .select()
       .single()
 
@@ -21,7 +24,7 @@ export async function PATCH(
     // Log status change activity
     if (body.status) {
       await supabase.from('activities').insert({
-        lead_id: params.id,
+        lead_id: id,
         type: 'status_change',
         title: `Status changed to ${body.status}`,
         description: `Lead status updated`,
@@ -38,12 +41,15 @@ export async function PATCH(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  props: { params: Promise<{ id: string }> }
 ) {
+  const { params } = props
+  const { id } = await params
+  
   try {
     const supabase = createServerClient()
 
-    const { error } = await supabase.from('leads').delete().eq('id', params.id)
+    const { error } = await supabase.from('leads').delete().eq('id', id)
 
     if (error) throw error
 

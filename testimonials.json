@@ -4,39 +4,59 @@
     "title": "VP Product, Series B SaaS",
     "company": "TechFlow",
     "image": "https://i.pravatar.cc/150?u=sarah-chen",
-    "quote": "This framework saved our team. We went from chaotic roadmapping to 40% revenue growth in 4 months. Everyone's aligned now.",
-    "verified": true
+    "quote": "This framework saved our team. We went from chaotic roadmapping to 40% faster development cycles and higher feature adoption. Everyone's aligned now, and our NPS jumped from 42 to 58.",
+    "verified": true,
+    "metric": "40% faster dev cycles",
+    "timeframe": "4 months"
   },
   {
     "author": "Marcus Rodriguez",
     "title": "CEO, E-commerce Startup",
     "company": "ShopFlow",
     "image": "https://i.pravatar.cc/150?u=marcus-rodriguez",
-    "quote": "Stakeholder alignment was killing us. Got a framework that actually works. Implementation took 2 weeks. Results were immediate.",
-    "verified": true
+    "quote": "Stakeholder alignment was killing us. Got a framework that actually works. Implementation took 2 weeks. Results were immediate—revenue jumped 18% in Q1.",
+    "verified": true,
+    "metric": "18% revenue lift",
+    "timeframe": "Q1"
   },
   {
     "author": "Emily Watson",
     "title": "Director of Product, Fintech",
     "company": "PaymentCo",
     "image": "https://i.pravatar.cc/150?u=emily-watson",
-    "quote": "The roadmap planning session alone was worth the investment. Having a framework everyone understands changed everything.",
-    "verified": true
+    "quote": "The roadmap planning session alone was worth the investment. Having a framework everyone understands—including the board—changed everything. We went from scattered priorities to a coherent strategy.",
+    "verified": true,
+    "metric": "Unified strategy",
+    "timeframe": "1 week"
   },
   {
     "author": "James Liu",
     "title": "Senior PM, Growth Stage Startup",
     "company": "DataStack",
     "image": "https://i.pravatar.cc/150?u=james-liu",
-    "quote": "Went from 25 points/sprint to 40 points/sprint just by clarifying priorities. Team morale improved dramatically.",
-    "verified": true
+    "quote": "Went from 25 points/sprint to 40 points/sprint just by clarifying priorities. Team morale improved dramatically, and we're shipping features that actually resonate with customers.",
+    "verified": true,
+    "metric": "60% sprint capacity increase",
+    "timeframe": "First sprint"
   },
   {
     "author": "Lisa Kim",
     "title": "Founder & CEO",
     "company": "CloudTools",
     "image": "https://i.pravatar.cc/150?u=lisa-kim",
-    "quote": "First time someone explained product strategy in a way that made sense to our whole leadership team. Game changer.",
-    "verified": true
+    "quote": "First time someone explained product strategy in a way that made sense to our whole leadership team. Within 2 months, we killed 12 low-impact features and doubled down on 3 core bets. Retention is up 22%.",
+    "verified": true,
+    "metric": "22% retention lift",
+    "timeframe": "2 months"
+  },
+  {
+    "author": "Alex Thompson",
+    "title": "Head of Product, B2B SaaS",
+    "company": "HubConnect",
+    "image": "https://i.pravatar.cc/150?u=alex-thompson",
+    "quote": "Oliver helped us go from feature-driven to outcome-driven product planning. We now track impact on every feature. It's changed how we talk about success. Our customers feel it too.",
+    "verified": true,
+    "metric": "Outcome-driven planning",
+    "timeframe": "Ongoing"
   }
 ]

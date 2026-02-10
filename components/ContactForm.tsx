@@ -70,8 +70,8 @@ export default function ContactForm() {
       )}
 
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-          Name *
+        <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+          Your Name <span className="text-red-500">*</span>
         </label>
         <input
           type="text"
@@ -79,13 +79,15 @@ export default function ContactForm() {
           required
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+          placeholder="e.g., Sarah Chen"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-          Email *
+        <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+          Work Email <span className="text-red-500">*</span>
+          <span className="text-xs font-normal text-gray-500 ml-1">(required for calendar invite)</span>
         </label>
         <input
           type="email"
@@ -93,54 +95,59 @@ export default function ContactForm() {
           required
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+          placeholder="you@company.com"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
         />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
-            Company
+          <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
+            Company <span className="text-gray-500 font-normal text-xs">(optional)</span>
           </label>
           <input
             type="text"
             id="company"
             value={formData.company}
             onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            placeholder="e.g., TechFlow, Inc."
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
           />
         </div>
 
         <div>
-          <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-1">
-            Role
+          <label htmlFor="role" className="block text-sm font-semibold text-gray-700 mb-2">
+            Your Role <span className="text-gray-500 font-normal text-xs">(optional)</span>
           </label>
           <input
             type="text"
             id="role"
             value={formData.role}
             onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            placeholder="e.g., Product Manager, Founder"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
           />
         </div>
       </div>
 
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-          Phone
+        <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+          Phone <span className="text-gray-500 font-normal text-xs">(optional)</span>
         </label>
         <input
           type="tel"
           id="phone"
           value={formData.phone}
           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+          placeholder="+1 (555) 123-4567"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-          What challenges are you facing? *
+        <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+          What's Your Challenge? <span className="text-red-500">*</span>
+          <span className="text-xs font-normal text-gray-500 ml-1">(The more detail, the better my advice)</span>
         </label>
         <textarea
           id="message"
@@ -148,18 +155,22 @@ export default function ContactForm() {
           rows={4}
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-          placeholder="Tell me about your product roadmap, prioritization, or strategy challenges..."
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition resize-none"
+          placeholder="E.g., 'We struggle with roadmap prioritization and stakeholders always want everything ASAP. How do we say no without losing buy-in?'"
         />
+        <p className="text-xs text-gray-500 mt-1">💡 Tip: Mention your biggest 2-3 challenges—I'll address them in the first call.</p>
       </div>
 
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-purple-700 hover:to-indigo-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold py-4 px-6 rounded-lg hover:from-purple-700 hover:to-indigo-700 transition disabled:opacity-50 disabled:cursor-not-allowed shadow-lg transform hover:scale-105"
       >
-        {loading ? 'Sending...' : 'Send Message'}
+        {loading ? '⏳ Sending...' : '✉️ Send & Get Fast-Tracked'}
       </button>
+      <p className="text-xs text-gray-500 text-center mt-3">
+        ✅ I respond within 24 hours • No spam, just strategy
+      </p>
     </form>
   )
 }

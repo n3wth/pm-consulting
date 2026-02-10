@@ -1,8 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createServerClient } from '@/lib/supabase'
 
 export async function GET(request: NextRequest) {
   try {
+    // Check if required env vars are present
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      return NextResponse.json({ error: 'Supabase not configured' }, { status: 503 })
+    }
+
+    const { createServerClient } = await import('@/lib/supabase')
     const { searchParams } = new URL(request.url)
     const type = searchParams.get('type') || 'leads' // leads, bookings, revenue
 
@@ -81,12 +86,12 @@ export async function GET(request: NextRequest) {
         .eq('payment_status', 'paid')
         .order('session_date', { ascending: false })
 
-      const flatData = data?.map((b) => ({
+      const flatData = data?.map((b: any) => ({
         date: b.session_date,
         amount: b.total_amount,
-        client_name: b.leads?.name,
-        client_email: b.leads?.email,
-        client_company: b.leads?.company,
+        client_name: Array.isArray(b.leads) ? b.leads[0]?.name : b.leads?.name,
+        client_email: Array.isArray(b.leads) ? b.leads[0]?.email : b.leads?.email,
+        client_company: Array.isArray(b.leads) ? b.leads[0]?.company : b.leads?.company,
       }))
 
       const csv = convertToCSV(flatData || [], [
