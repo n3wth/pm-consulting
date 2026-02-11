@@ -1,11 +1,52 @@
+# robots.txt for StrategyPM - Product Strategy Consulting
+# https://pm-consulting-one.vercel.app
+
 User-agent: *
 Allow: /
+Allow: /blog/
+Allow: /case-studies/
+Allow: /sitemap.xml
+Allow: /robots.txt
 
+# Disallow crawling of private/admin areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /node_modules/
+Disallow: /internal/
+Disallow: /.git/
+
+# Disallow query parameters that create duplicate content
+Disallow: /*?utm_source=
+Disallow: /*?utm_medium=
+Disallow: /*?utm_campaign=
+Disallow: /*?utm_content=
+Disallow: /*?utm_term=
+Disallow: /*?redirect=
+
+# Allow specific important URLs
+Allow: /blog/
+Allow: /case-studies/
+Allow: /templates/
+
+# Googlebot specific rules (more aggressive crawling)
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bingbot
+User-agent: Bingbot
+Crawl-delay: 1
+
+# Default crawl delay for other bots
+Crawl-delay: 1
+Request-rate: 1/1s
+
+# Sitemap declaration
 Sitemap: https://pm-consulting-one.vercel.app/sitemap.xml
 
-# Block scrapers
-User-agent: AhrefsBot
-Disallow: /
+# Alternative sitemap if multi-page
+Sitemap: https://pm-consulting-one.vercel.app/sitemap-blog.xml
 
-User-agent: SemrushBot
-Disallow: /
+# Comment: Last updated: 2026-02-11
