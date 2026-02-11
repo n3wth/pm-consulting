@@ -611,6 +611,148 @@
         }
       });
     </script>
+
+    <!-- Enhanced Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://pm-consulting-one.vercel.app"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://pm-consulting-one.vercel.app#services"
+        }
+      ]
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What's your background and expertise?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I have 10+ years of product management experience at Google, Meta, and Microsoft. During that time, I led products from 0-$100M+ in revenue, managed teams of 50+, and worked with every part of the organization from C-suite to frontline engineers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does consulting actually work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I work with you to understand your specific situation, then apply frameworks and methodologies proven at scale. We focus on actionable recommendations you can implement immediately, not theoretical advice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I'm not satisfied?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer a 100% money-back guarantee. If you're not satisfied within 14 days, you get your money back, no questions asked. Your satisfaction is the only metric that matters."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does consulting cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hourly consulting is $300/hour. Multi-day engagements have custom pricing based on scope. Most companies see ROI within 4-12 weeks through improved decision-making and faster shipping."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a typical engagement take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This depends on your needs. Quick consultations can be 1-2 hours. Intensive workshops are typically 40 hours spread over 1-2 weeks. Ongoing advisory relationships vary based on your needs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you work with startups?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. I love working with startups at all stages. I understand bootstrap constraints, and I help you make decisions faster with limited resources. Many of my clients are pre-seed to Series B."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know if this is right for me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This is right for you if: (1) You're shipping slower than you want, (2) Your team isn't aligned on priorities, (3) You're making decisions without enough data, or (4) You want to learn from someone who's been in the trenches at scale."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Core Web Vitals Monitoring -->
+    <script>
+    // Web Vitals Tracking
+    if (typeof window !== 'undefined') {
+      // Cumulative Layout Shift (CLS)
+      let clsValue = 0;
+      if ('PerformanceObserver' in window) {
+        try {
+          const clsObserver = new PerformanceObserver((list) => {
+            for (const entry of list.getEntries()) {
+              if (!entry.hadRecentInput) {
+                const firstSessionEntry = clsValue;
+                clsValue += entry.value;
+                console.log('CLS Update:', clsValue.toFixed(3));
+              }
+            }
+          });
+          clsObserver.observe({type: 'layout-shift', buffered: true});
+        } catch (e) {
+          console.log('CLS monitoring not supported');
+        }
+      }
+
+      // Largest Contentful Paint (LCP)
+      if ('PerformanceObserver' in window) {
+        try {
+          const lcpObserver = new PerformanceObserver((list) => {
+            const entries = list.getEntries();
+            const lastEntry = entries[entries.length - 1];
+            console.log('LCP:', (lastEntry.renderTime || lastEntry.loadTime).toFixed(0), 'ms');
+          });
+          lcpObserver.observe({type: 'largest-contentful-paint', buffered: true});
+        } catch (e) {
+          console.log('LCP monitoring not supported');
+        }
+      }
+
+      // First Input Delay (FID) - now First Interaction Delay (INP)
+      if ('PerformanceObserver' in window) {
+        try {
+          const fidObserver = new PerformanceObserver((list) => {
+            for (const entry of list.getEntries()) {
+              console.log('FID:', entry.processingDuration.toFixed(0), 'ms');
+            }
+          });
+          fidObserver.observe({type: 'first-input', buffered: true});
+        } catch (e) {
+          console.log('FID monitoring not supported');
+        }
+      }
+    }
+    </script>
+
 </head>
 <body>
     <section class="hero">
