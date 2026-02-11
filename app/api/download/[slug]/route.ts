@@ -4,10 +4,10 @@ import { join } from 'path'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  context: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const { slug } = params
+    const { slug } = await context.params
     
     // Security: validate slug format
     if (!/^[a-z0-9-]+$/.test(slug)) {
