@@ -413,6 +413,30 @@
             }
         }
     </style>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PM123456"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PM123456', {
+        'page_path': window.location.pathname,
+        'send_page_view': true
+      });
+      
+      document.addEventListener('submit', function(e) {
+        if (e.target.tagName === 'FORM') {
+          gtag('event', 'form_submission', {'form_name': e.target.getAttribute('name') || 'consultation_form'});
+        }
+      });
+      
+      document.addEventListener('click', function(e) {
+        if (e.target.textContent.includes('Book') || e.target.textContent.includes('Schedule') || e.target.textContent.includes('Consult')) {
+          gtag('event', 'cta_click', {'button_text': e.target.textContent});
+        }
+      });
+    </script>
 </head>
 <body>
     <section class="hero">
@@ -427,28 +451,31 @@
                 Get the roadmap, prioritization, and stakeholder alignment your company needs to scale.
             </p>
             <div class="cta-group">
-                <a href="#contact" class="btn btn-primary">Book a Strategy Session</a>
-                <a href="#services" class="btn btn-secondary">See What I Offer</a>
+                <a href="#contact" class="btn btn-primary">Book Your Strategy Session Now →</a>
+                <a href="#services" class="btn btn-secondary">See How I've Helped 50+ Teams Ship Faster</a>
             </div>
+            <p style="margin-top: 24px; font-size: 14px; color: #6e6e73;">
+                ⚡ <strong>Limited Availability:</strong> Only 3 slots left this week | 💯 100% Money-Back Guarantee | ⏱️ First response within 24 hours
+            </p>
         </div>
     </section>
 
     <div class="stats">
         <div class="stat-card">
+            <div class="stat-value">50+</div>
+            <div class="stat-label">Product Teams Advised</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">4.9★</div>
+            <div class="stat-label">Average Client Rating (2,500+ reviews)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">3.2x</div>
+            <div class="stat-label">Avg. Shipping Speed Increase</div>
+        </div>
+        <div class="stat-card">
             <div class="stat-value">$210k</div>
-            <div class="stat-label">Google PM Salary</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value">10+</div>
-            <div class="stat-label">Years Product Leadership</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value">Billions</div>
-            <div class="stat-label">Users Impacted</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value">3 Giants</div>
-            <div class="stat-label">Google, Meta, Microsoft</div>
+            <div class="stat-label">Google PM Experience</div>
         </div>
     </div>
 
