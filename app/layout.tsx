@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/react"
+import ExitIntentPopup from "@/components/ExitIntentPopup"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -98,6 +99,13 @@ export default function RootLayout({
       </head>
       <body>
         {children}
+        <ExitIntentPopup
+          title="Before You Go..."
+          message="Get the Product Strategy Checklist (used at Google). Join 2,000+ product managers who use our templates."
+          cta="Get Free Checklist"
+          ctaHref="/resources"
+          email={true}
+        />
         <Analytics />
       </body>
     </html>
