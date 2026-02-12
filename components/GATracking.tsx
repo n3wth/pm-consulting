@@ -2,36 +2,26 @@
 
 import { useEffect } from 'react';
 
-declare global {
-  interface Window {
-    gtag: (...args: any[]) => void;
-    dataLayer: any[];
-    AB_VARIANT?: 'A' | 'B';
-    PAGE_LOAD_TIME?: number;
-    FORM_START_TIME?: number;
-    FORM_ERROR_COUNT?: number;
-    INTERACTION_COUNT?: number;
-  }
-}
-
 // GA4 Measurement ID
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-PLACEHOLDER';
 
 export default function GATracking() {
   useEffect(() => {
+    const gtag = (window as any).gtag;
+    
     // Initialize tracking timestamps
-    window.PAGE_LOAD_TIME = Date.now();
-    window.FORM_ERROR_COUNT = 0;
-    window.INTERACTION_COUNT = 0;
+    (window as any).PAGE_LOAD_TIME = Date.now();
+    (window as any).FORM_ERROR_COUNT = 0;
+    (window as any).INTERACTION_COUNT = 0;
 
     // Determine A/B variant (50/50 split based on session)
-    if (!window.AB_VARIANT) {
+    if (!(window as any).AB_VARIANT) {
       const sessionVariant = sessionStorage.getItem('ab_variant');
       if (sessionVariant) {
-        window.AB_VARIANT = sessionVariant as 'A' | 'B';
+        (window as any).AB_VARIANT = sessionVariant;
       } else {
         const variant = Math.random() < 0.5 ? 'A' : 'B';
-        window.AB_VARIANT = variant;
+        (window as any).AB_VARIANT = variant;
         sessionStorage.setItem('ab_variant', variant);
       }
     }
@@ -49,9 +39,9 @@ export default function GATracking() {
     };
 
     // Track variant impression on page load
-    if (typeof window.gtag !== 'undefined') {
-      window.gtag('event', 'variant_impression', {
-        variant: window.AB_VARIANT,
+    if (gtag) {
+      gtag('event', 'variant_impression', {
+        variant: (window as any).AB_VARIANT,
         site: 'pm-consulting',
         page_type: 'landing',
         user_type: isReturningVisitor() ? 'returning' : 'new',
@@ -63,35 +53,35 @@ export default function GATracking() {
     }
 
     // Track form field focus
-    const trackFormFocus = (e: FocusEvent) => {
+    const trackFormFocus = (e: Event) => {
       const target = e.target as HTMLInputElement | HTMLTextAreaElement;
       const form = target.closest('form');
       
-      if (form && typeof window.gtag !== 'undefined') {
-        window.gtag('event', 'form_field_focus', {
+      if (form && gtag) {
+        gtag('event', 'form_field_focus', {
           field_name: target.name || 'unknown',
           form_id: form.id || 'unknown',
-          variant: window.AB_VARIANT,
-          time_to_focus_sec: Math.round((Date.now() - (window.PAGE_LOAD_TIME || Date.now())) / 1000),
+          variant: (window as any).AB_VARIANT,
+          time_to_focus_sec: Math.round((Date.now() - ((window as any).PAGE_LOAD_TIME || Date.now())) / 1000),
         });
 
         // Set form start time on first field focus
-        if (!window.FORM_START_TIME) {
-          window.FORM_START_TIME = Date.now();
+        if (!(window as any).FORM_START_TIME) {
+          (window as any).FORM_START_TIME = Date.now();
         }
       }
     };
 
     // Track CTA clicks
-    const trackCTAClick = (e: MouseEvent) => {
+    const trackCTAClick = (e: Event) => {
       const target = e.target as HTMLElement;
       const button = target.closest('.cta-button, .btn-primary, .btn-secondary, button[data-cta]');
       
-      if (button && typeof window.gtag !== 'undefined') {
+      if (button && gtag) {
         const element = button as HTMLElement;
         const computedStyle = window.getComputedStyle(element);
         
-        window.gtag('event', 'cta_click', {
+        gtag('event', 'cta_click', {
           cta_text: element.textContent?.trim() || 'unknown',
           cta_position: element.getAttribute('data-position') || 'unknown',
           cta_color: computedStyle.backgroundColor,
@@ -109,12 +99,12 @@ export default function GATracking() {
       );
 
       [25, 50, 75, 90].forEach((threshold) => {
-        if (scrollPercent >= threshold && !depthsTracked.has(threshold) && typeof window.gtag !== 'undefined') {
+        if (scrollPercent >= threshold && !depthsTracked.has(threshold) && gtag) {
           depthsTracked.add(threshold);
-          window.gtag('event', 'scroll_depth', {
+          gtag('event', 'scroll_depth', {
             depth_percent: threshold,
-            time_to_depth_sec: Math.round((Date.now() - (window.PAGE_LOAD_TIME || Date.now())) / 1000),
-            variant: window.AB_VARIANT,
+            time_to_depth_sec: Math.round((Date.now() - ((window as any).PAGE_LOAD_TIME || Date.now())) / 1000),
+            variant: (window as any).AB_VARIANT,
           });
         }
       });
@@ -122,12 +112,13 @@ export default function GATracking() {
 
     // Track exit intent
     let exitTracked = false;
-    const trackExitIntent = (e: MouseEvent) => {
-      if (!exitTracked && e.clientY < 10 && typeof window.gtag !== 'undefined') {
+    const trackExitIntent = (e: Event) => {
+      const mouseEvent = e as MouseEvent;
+      if (!exitTracked && mouseEvent.clientY < 10 && gtag) {
         exitTracked = true;
         const scrollMax = Math.round((window.scrollY / document.body.scrollHeight) * 100);
-        window.gtag('event', 'exit_intent', {
-          time_on_page_sec: Math.round((Date.now() - (window.PAGE_LOAD_TIME || Date.now())) / 1000),
+        gtag('event', 'exit_intent', {
+          time_on_page_sec: Math.round((Date.now() - ((window as any).PAGE_LOAD_TIME || Date.now())) / 1000),
           scroll_depth_at_exit: scrollMax,
           forms_interacted: !!document.querySelector('input:focus, textarea:focus'),
         });
@@ -136,12 +127,12 @@ export default function GATracking() {
 
     // Track bounce on page unload
     const trackBounce = () => {
-      const timeOnPage = Math.round((Date.now() - (window.PAGE_LOAD_TIME || Date.now())) / 1000);
-      const interactions = window.INTERACTION_COUNT || 0;
+      const timeOnPage = Math.round((Date.now() - ((window as any).PAGE_LOAD_TIME || Date.now())) / 1000);
+      const interactions = (window as any).INTERACTION_COUNT || 0;
       const scrollMax = Math.round((window.scrollY / document.body.scrollHeight) * 100);
 
-      if (timeOnPage < 10 && scrollMax < 25 && interactions === 0 && typeof window.gtag !== 'undefined') {
-        window.gtag('event', 'bounce', {
+      if (timeOnPage < 10 && scrollMax < 25 && interactions === 0 && gtag) {
+        gtag('event', 'bounce', {
           time_on_page_sec: timeOnPage,
           interactions,
           scroll_max_percent: scrollMax,
@@ -151,27 +142,27 @@ export default function GATracking() {
 
     // Track general interactions
     const trackInteraction = () => {
-      window.INTERACTION_COUNT = (window.INTERACTION_COUNT || 0) + 1;
+      (window as any).INTERACTION_COUNT = ((window as any).INTERACTION_COUNT || 0) + 1;
     };
 
     // Attach event listeners
     document.querySelectorAll('input, textarea').forEach((field) => {
-      field.addEventListener('focus', trackFormFocus, { once: true });
+      field.addEventListener('focus', trackFormFocus as EventListener, { once: true });
     });
 
-    document.addEventListener('click', trackCTAClick);
-    document.addEventListener('click', trackInteraction);
-    window.addEventListener('scroll', trackScrollDepth, { passive: true });
-    document.addEventListener('mouseout', trackExitIntent);
-    window.addEventListener('beforeunload', trackBounce);
+    document.addEventListener('click', trackCTAClick as EventListener);
+    document.addEventListener('click', trackInteraction as EventListener);
+    window.addEventListener('scroll', trackScrollDepth as EventListener, { passive: true });
+    document.addEventListener('mouseout', trackExitIntent as EventListener);
+    window.addEventListener('beforeunload', trackBounce as EventListener);
 
     // Cleanup
     return () => {
-      document.removeEventListener('click', trackCTAClick);
-      document.removeEventListener('click', trackInteraction);
-      window.removeEventListener('scroll', trackScrollDepth);
-      document.removeEventListener('mouseout', trackExitIntent);
-      window.removeEventListener('beforeunload', trackBounce);
+      document.removeEventListener('click', trackCTAClick as EventListener);
+      document.removeEventListener('click', trackInteraction as EventListener);
+      window.removeEventListener('scroll', trackScrollDepth as EventListener);
+      document.removeEventListener('mouseout', trackExitIntent as EventListener);
+      window.removeEventListener('beforeunload', trackBounce as EventListener);
     };
   }, []);
 
@@ -202,12 +193,13 @@ export default function GATracking() {
 
 // Helper function for form submissions (to be called from form components)
 export function trackFormSubmission(formType: string, fieldsCompleted: number, validationErrors: number = 0) {
-  if (typeof window.gtag !== 'undefined') {
-    const formTime = window.FORM_START_TIME 
-      ? Math.round((Date.now() - window.FORM_START_TIME) / 1000)
+  const gtag = (window as any).gtag;
+  if (gtag) {
+    const formTime = (window as any).FORM_START_TIME 
+      ? Math.round((Date.now() - (window as any).FORM_START_TIME) / 1000)
       : 0;
 
-    window.gtag('event', 'form_submission', {
+    gtag('event', 'form_submission', {
       form_type: formType,
       fields_completed: fieldsCompleted,
       form_time_sec: formTime,
