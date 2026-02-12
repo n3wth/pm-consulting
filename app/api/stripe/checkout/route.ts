@@ -1,8 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createCheckoutSession } from '@/lib/stripe'
 
 export async function POST(request: NextRequest) {
   try {
+    // Check if Stripe is configured
+    if (!process.env.STRIPE_SECRET_KEY) {
+      return NextResponse.json({ 
+        error: 'Stripe payment processing is not configured. Please contact support.' 
+      }, { status: 503 })
+    }
+
+    // Lazy load stripe to avoid build-time errors
+    const { createCheckoutSession } = await import('@/lib/stripe')
+    
     const body = await request.json()
     const { booking_id, amount, email, name } = body
 
