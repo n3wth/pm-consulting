@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "sarah-chen",
+    "author": "Sarah Chen",
+    "webp": "/optimized/sarah-chen.webp",
+    "avif": "/optimized/sarah-chen.avif",
+    "png": "/optimized/sarah-chen.png",
+    "blur": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABI0lEQVR4nAXBi06CUAAA0PsrLRWvyEMQUYELxuMOEBAFJMUHMtk0y6azzGX16Z0DiMpDg3ikYa1F1jkK8hTkmpAlCapehdVHQBKVFkmIDCnxNBJYVWCVNtPnKIFqMLAG2EZNZEmtw1pS20Gii0Rb7hg9HvF0h4JAoKEqMLYshHo/sZQUo9iUA61r9TiFawKZp7DUnuhS5mi5bxSBsR4+PWMUqKIhssDocsGgO3e0bWjuY/sQ27sJzj19aspDRQCeKqYYFSPjkDinmXeee++pu5vgpTuI9D6YYpT7+ktinzP/cxV+rcKPRXBM3TK0MkcDm5G5T+xT5l/X4XcR3Yvolo8vi+AtdcsxBq/p8LwIrvn4vo1/y+SvTH628W0TXZbhceb/A29EVEk55oDiAAAAAElFTkSuQmCC",
+    "width": 150,
+    "height": 150
+  },
+  {
+    "slug": "marcus-rodriguez",
+    "author": "Marcus Rodriguez",
+    "webp": "/optimized/marcus-rodriguez.webp",
+    "avif": "/optimized/marcus-rodriguez.avif",
+    "png": "/optimized/marcus-rodriguez.png",
+    "blur": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABKElEQVR4nBXJbU+CQAAA4PsdNUss0yTjRQtBQyEPF2IoHgdyAr6RpVNBM21urZ/eer4+gDo7z1+kmAwl5LJPd7cKU1R5VuE5meNEhgU3qVSRSj/kruViAfKMLpQMSTCq4ktVgqIE6PRlKZup0XmNv3+tlJEsOWp9AFW3BbGmAfaKEvPZZ4buCDyuS77WmLRbkWm8WWaELCAWcipLtx85W64EsB4Z2sLqrJ1+TNwkIKBZZg2xjGTR/z+4tIzYtT599zD2j7MJ6DVqTlP2W0pkwEVP3+DujuBDSL5no9M8AqGpT7v6vNdeos4am8mgvyPOPiBfk/AQTcFm5MWhmwzxlqCthxLPjj0ck8HGJ+sgAL/J8mc1P72Pj9PhPnQT4qxc+wPbkW2PkfMHxwdZ+GKx4cgAAAAASUVORK5CYII=",
+    "width": 150,
+    "height": 150
+  },
+  {
+    "slug": "emily-watson",
+    "author": "Emily Watson",
+    "webp": "/optimized/emily-watson.webp",
+    "avif": "/optimized/emily-watson.avif",
+    "png": "/optimized/emily-watson.png",
+    "blur": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABG0lEQVR4nBXLWXKCMAAA0Nz/CJ26VwcXLBoEZYlKlEBEtoCCICIurZ0eotP3/8Dv61UV5yQMfIvssEENwzVJ7PnFKft+fIHX414kx5Da9hLhhWzMJVPT9qaZhOxWXsGzvKSh76xXxgyq45HCD/WJsNXUgNIiPYEqz2KHEmWu8YNZtwM7LYnrLeF0h3HKIlCmKbPJRhYX/d60VRca77DTVMe8hdDB80GZJMwyNxJUuC5s1ib1N9huqKMh0bXIdf93bFtkLulDTv5oiq2a1G3rn7yNUOx6oMrzxN07SNtAAY04bdBDfB/P4B7jJAjB41KeI8bI1tEVS4KmKBBZ3CE9ojQ/HMHP/XnLstz3DtaW4VWw1kO8im0rZ6zKz39JR+aNOPVdSwAAAABJRU5ErkJggg==",
+    "width": 150,
+    "height": 150
+  },
+  {
+    "slug": "james-liu",
+    "author": "James Liu",
+    "webp": "/optimized/james-liu.webp",
+    "avif": "/optimized/james-liu.avif",
+    "png": "/optimized/james-liu.png",
+    "blur": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABJElEQVR4nBXJ21KCQAAA0P3/V4swURGBQBBYFlRUlERuGogorOLloaxpdJqp6QeazusBYRj1ez2B4+pVkryr1B4IjmFMhIIg2JUlCHy/bxgCyzZIslqpUMQ926QR1Lz5vMD4vy3TlHieqdUaBNEkySe6ZWiaN3PzbQ4WYTixLChJYqvFURRP1eU2O9Cg78zydQZWcew5zhAhJIoqy6pMG/GCDfVo4hQvCSi2eRxF87FtIzSUu5bYGXUkF6J4ZGM/BKfjqcg2ie+H47FrGDNFdeVuqMLUtPb2M7hcPs6HI16la8+Lh6OFjhaykkjKRtFLNAC329f76+WM8W653EymqY4SUVpzQs6KJS+D75/f6+f17XA8JQmeTjMIU47P6nT+2NxX6T9CcNuo5eG+PAAAAABJRU5ErkJggg==",
+    "width": 150,
+    "height": 150
+  },
+  {
+    "slug": "lisa-kim",
+    "author": "Lisa Kim",
+    "webp": "/optimized/lisa-kim.webp",
+    "avif": "/optimized/lisa-kim.avif",
+    "png": "/optimized/lisa-kim.png",
+    "blur": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABQUlEQVR4nAE2Acn+ACIZEyogGDQoHj4yJktAM1lQQ2ZhVXNyaH6De4mTjgAkGxQtIhk4KyBENihSRTZhVUZvZ1h8eGuIiX6TmpEAKB0VMiYbPy8iSzsrW0o4altJeW1bh39uk5CCnaGVADAjGTsrHkc1JVRALWRQO3RhS4JzXZCFcZ2WhainmAA6Kx5FMiNRPCleRjFuVj5+Zk6MeGCainOnnIizrZsASDUkUjwoXkQtaU41eFxBh2tQlX1io492sKGLvbOfAFlBLGFGL2tNM3VVOYJiRI9wU5yBZKqTeLiljsW3ogBqTjZxUjd4VzmAXT2LZ0eWdFWihGWwlXq+qJDMu6UAe1w/gF0+hWA/i2VCk21KnHhXp4ZntJh8w6uS0b6oAIpoR45oRZBpRJRsR5pyTqF8WauJabiafsetldXAq3y/eSbnc3f/AAAAAElFTkSuQmCC",
+    "width": 150,
+    "height": 150
+  },
+  {
+    "slug": "alex-thompson",
+    "author": "Alex Thompson",
+    "webp": "/optimized/alex-thompson.webp",
+    "avif": "/optimized/alex-thompson.avif",
+    "png": "/optimized/alex-thompson.png",
+    "blur": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABI0lEQVR4nAXBC3eBUAAA4PuDFWfVTSWabnqeqCHGVN6PjYmLaI7tyGz7U/s+EOGk5w8t0y4JIkczIsvpqNLxnt+Xm2v6ByJ86vl9yzAlnhcoqsRCE6EXrxWtolv6CyIc+73A1vUynxepXJmlbVQOvOZ2tf5Of8AGH0Lfr+kq4qFEZRX2oSZLYbOOl6t7egd4dxgEvmuoFYGRaVJlc44s9hsufnu9X1Ow28ejMKhbmlZgEENobNYtC+FTdbuY3T6/wD4+Tgb9pq0bIlQYQoOkI3G+Y64no+v5DA7HZDYetWqWWcwrkFAhUS3Crq0th8HldARxcp5Pp23XNkscgqTCZKwC3TLQzO8kewzij8tiPm/XHUMSZEjKdEbnqYb6OO568Wb9D7ofr8U3mA62AAAAAElFTkSuQmCC",
+    "width": 150,
+    "height": 150
+  }
+]

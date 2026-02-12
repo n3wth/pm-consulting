@@ -1,7 +1,15 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import testimonials from '@/testimonials.json'
+import imageMetadata from '@/public/optimized/images.json'
+
+// Create a map of author names to image metadata
+const imageMap = imageMetadata.reduce((acc, img) => {
+  acc[img.author] = img
+  return acc
+}, {} as Record<string, typeof imageMetadata[0]>)
 
 export default function TestimonialsCarousel() {
   const [current, setCurrent] = useState(0)
@@ -15,6 +23,7 @@ export default function TestimonialsCarousel() {
   }
 
   const testimonial = testimonials[current]
+  const imageData = imageMap[testimonial.author]
 
   return (
     <section className="py-20 px-6 md:px-12 bg-gradient-to-b from-gray-900 to-black">
@@ -29,11 +38,21 @@ export default function TestimonialsCarousel() {
           {/* Testimonial Content */}
           <div className="space-y-6">
             <div className="flex items-center gap-4">
-              <img
-                src={testimonial.image}
-                alt={testimonial.author}
-                className="w-16 h-16 rounded-full border-2 border-white/20"
-              />
+              {imageData ? (
+                <Image
+                  src={imageData.webp}
+                  alt={testimonial.author}
+                  width={64}
+                  height={64}
+                  placeholder="blur"
+                  blurDataURL={imageData.blur}
+                  className="w-16 h-16 rounded-full border-2 border-white/20 object-cover"
+                  priority={current === 0}
+                  sizes="64px"
+                />
+              ) : (
+                <div className="w-16 h-16 rounded-full border-2 border-white/20 bg-gray-700" />
+              )}
               <div>
                 <p className="font-semibold text-lg">{testimonial.author}</p>
                 <p className="text-gray-400 text-sm">{testimonial.title}</p>
