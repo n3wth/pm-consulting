@@ -166,7 +166,7 @@ export default function ContactForm() {
         disabled={loading}
         className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold py-4 px-6 rounded-lg hover:from-purple-700 hover:to-indigo-700 transition disabled:opacity-50 disabled:cursor-not-allowed shadow-lg transform hover:scale-105"
       >
-        {loading ? '⏳ Sending...' : '✉️ Send & Get Fast-Tracked'}
+        {loading ? '⏳ Sending...' : '📅 Book 48-Hour Strategy Session'}
       </button>
       <p className="text-xs text-gray-500 text-center mt-3">
         ✅ I respond within 24 hours • No spam, just strategy

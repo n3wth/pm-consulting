@@ -7,6 +7,7 @@ import Pricing from '@/components/Pricing'
 import TestimonialsCarousel from '@/components/TestimonialsCarousel'
 import SocialProof from '@/components/SocialProof'
 import ContactForm from '@/components/ContactForm'
+import ExitIntentPopup from '@/components/ExitIntentPopup'
 import Footer from '@/components/Footer'
 
 export default function Home() {
@@ -31,6 +32,15 @@ export default function Home() {
         </div>
       </div>
       <Footer />
+      
+      {/* Exit Intent Popup - Last chance to convert */}
+      <ExitIntentPopup
+        title="Wait! One moment..."
+        message="Get a free 15-min strategy call. No sales pitch—just actionable insights for your product roadmap."
+        cta="Get Free 15-Min Call"
+        ctaHref="#contact"
+        email={true}
+      />
     </main>
   )
 }
