@@ -67,17 +67,17 @@
         .btn-secondary { background: #ffffff; color: #1d1d1f; border: 1px solid #e5e5ea; }
         .btn-secondary:hover { background: #f5f5f7; }
         .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; max-width: 1200px; margin: -60px auto 0; padding: 0 24px; position: relative; z-index: 10; }
-        .stat-card { background: #ffffff; border: 1px solid #e5e5ea; border-radius: 16px; padding: 32px 24px; text-align: center; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
+        .stat-card { background: #ffffff; border: 1px solid #e5e5ea; border-radius: 16px; padding: 32px 24px; text-align: center; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); min-height: 180px; }
         .stat-value { font-family: 'Space Grotesk', sans-serif; font-size: 48px; font-weight: 700; color: #1d1d1f; line-height: 1; margin-bottom: 8px; }
         .stat-label { font-size: 14px; color: #6e6e73; font-weight: 500; }
         .section-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 4vw, 48px); font-weight: 700; text-align: center; margin-bottom: 64px; color: #1d1d1f; }
         .services { max-width: 1200px; margin: 120px auto; padding: 0 24px; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
-        .service-card { background: #ffffff; border: 1px solid #e5e5ea; border-radius: 20px; padding: 40px; transition: all 0.3s; }
+        .service-card { background: #ffffff; border: 1px solid #e5e5ea; border-radius: 20px; padding: 40px; transition: all 0.3s; min-height: 380px; display: flex; flex-direction: column; }
         .service-card:hover { transform: translateY(-4px); border-color: #1d1d1f; }
         .service-icon { font-size: 48px; margin-bottom: 24px; }
         .service-title { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600; margin-bottom: 16px; color: #1d1d1f; }
-        .service-description { color: #6e6e73; margin-bottom: 24px; line-height: 1.6; }
+        .service-description { color: #6e6e73; margin-bottom: 24px; line-height: 1.6; flex-grow: 1; }
         .service-features { list-style: none; }
         .service-features li { padding: 8px 0; color: #6e6e73; font-size: 14px; }
         .service-features li:before { content: "✓"; color: #1d1d1f; font-weight: 700; margin-right: 12px; }
@@ -87,7 +87,7 @@
           .btn { width: 100%; justify-content: center; }
           .hero { padding: 80px 20px 60px; }
           .services-grid { grid-template-columns: 1fr; }
-          .service-card { padding: 32px 24px; }
+          .service-card { padding: 32px 24px; min-height: auto; }
         }
     </style>
     
@@ -348,7 +348,7 @@
         }
       });
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PM123456"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-PM123456"></script>
 
     <!-- Enhanced Breadcrumb Schema -->
     <script type="application/ld+json">
@@ -439,7 +439,7 @@
     </script>
 
     <!-- Core Web Vitals Monitoring -->
-    <script>
+    <script defer>
     // Web Vitals Tracking (Silent - no console logging)
     if (typeof window !== 'undefined') {
       // Cumulative Layout Shift (CLS)
@@ -821,7 +821,7 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 48px;">
                 <div class="testimonial-card" style="background: #f5f5f7; border: 1px solid #e5e5ea; border-radius: 16px; padding: 32px;">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                        <div style="width: 48px; height: 48px; border-radius: 50%; background: #1d1d1f; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700;">SC</div>
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: #1d1d1f; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">SC</div>
                         <div>
                             <div style="font-weight: 600; color: #1d1d1f;">Sarah Chen</div>
                             <div style="font-size: 14px; color: #6e6e73;">VP Product, TechFlow</div>
@@ -834,7 +834,7 @@
                 </div>
                 <div class="testimonial-card" style="background: #f5f5f7; border: 1px solid #e5e5ea; border-radius: 16px; padding: 32px;">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                        <div style="width: 48px; height: 48px; border-radius: 50%; background: #1d1d1f; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700;">MP</div>
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: #1d1d1f; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">MP</div>
                         <div>
                             <div style="font-weight: 600; color: #1d1d1f;">Marcus Park</div>
                             <div style="font-size: 14px; color: #6e6e73;">Founder, DataSync (Series A)</div>
@@ -847,7 +847,7 @@
                 </div>
                 <div class="testimonial-card" style="background: #f5f5f7; border: 1px solid #e5e5ea; border-radius: 16px; padding: 32px;">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                        <div style="width: 48px; height: 48px; border-radius: 50%; background: #1d1d1f; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700;">RJ</div>
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: #1d1d1f; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">RJ</div>
                         <div>
                             <div style="font-weight: 600; color: #1d1d1f;">Rebecca Johnson</div>
                             <div style="font-size: 14px; color: #6e6e73;">Head of Product, CloudScale</div>
@@ -860,7 +860,7 @@
                 </div>
                 <div class="testimonial-card" style="background: #f5f5f7; border: 1px solid #e5e5ea; border-radius: 16px; padding: 32px;">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                        <div style="width: 48px; height: 48px; border-radius: 50%; background: #1d1d1f; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700;">AK</div>
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: #1d1d1f; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">AK</div>
                         <div>
                             <div style="font-weight: 600; color: #1d1d1f;">Alex Kim</div>
                             <div style="font-size: 14px; color: #6e6e73;">CPO, BuildFast AI</div>
@@ -873,7 +873,7 @@
                 </div>
                 <div class="testimonial-card" style="background: #f5f5f7; border: 1px solid #e5e5ea; border-radius: 16px; padding: 32px;">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                        <div style="width: 48px; height: 48px; border-radius: 50%; background: #1d1d1f; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700;">LM</div>
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: #1d1d1f; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">LM</div>
                         <div>
                             <div style="font-weight: 600; color: #1d1d1f;">Lisa Martinez</div>
                             <div style="font-size: 14px; color: #6e6e73;">Product Lead, FinTech Startup</div>
@@ -886,7 +886,7 @@
                 </div>
                 <div class="testimonial-card" style="background: #f5f5f7; border: 1px solid #e5e5ea; border-radius: 16px; padding: 32px;">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                        <div style="width: 48px; height: 48px; border-radius: 50%; background: #1d1d1f; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700;">TW</div>
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: #1d1d1f; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">TW</div>
                         <div>
                             <div style="font-weight: 600; color: #1d1d1f;">Tom Williams</div>
                             <div style="font-size: 14px; color: #6e6e73;">CEO, HealthTech Co</div>
@@ -1035,18 +1035,24 @@
         </div>
     </div>
 
-    <script>
-        // Exit intent detection
+    <script defer>
+        // Exit intent detection - deferred
         let exitIntentShown = false;
         document.addEventListener('mouseout', function(e) {
             if (!exitIntentShown && e.clientY <= 0) {
                 exitIntentShown = true;
-                document.getElementById('exitPopup').style.display = 'flex';
+                const exitPopup = document.getElementById('exitPopup');
+                if (exitPopup) {
+                    exitPopup.style.display = 'flex';
+                }
             }
         });
 
         function closeExitPopup() {
-            document.getElementById('exitPopup').style.display = 'none';
+            const exitPopup = document.getElementById('exitPopup');
+            if (exitPopup) {
+                exitPopup.style.display = 'none';
+            }
         }
 
         // Scroll-triggered CTA (after 50% scroll)

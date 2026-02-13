@@ -14,6 +14,7 @@ export default function ContactForm() {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
+  const [showOptional, setShowOptional] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -31,6 +32,15 @@ export default function ContactForm() {
 
       if (!response.ok) {
         throw new Error(data.error || 'Failed to submit')
+      }
+
+      // Track conversion event
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'form_submission', {
+          form_type: 'contact',
+          fields_completed: Object.values(formData).filter(v => v).length,
+          conversion_value: 300,
+        });
       }
 
       setSuccess(true)
@@ -69,6 +79,7 @@ export default function ContactForm() {
         </div>
       )}
 
+      {/* Required Fields - Always Visible */}
       <div>
         <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
           Your Name <span className="text-red-500">*</span>
@@ -100,50 +111,6 @@ export default function ContactForm() {
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
-            Company <span className="text-gray-500 font-normal text-xs">(optional)</span>
-          </label>
-          <input
-            type="text"
-            id="company"
-            value={formData.company}
-            onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-            placeholder="e.g., TechFlow, Inc."
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="role" className="block text-sm font-semibold text-gray-700 mb-2">
-            Your Role <span className="text-gray-500 font-normal text-xs">(optional)</span>
-          </label>
-          <input
-            type="text"
-            id="role"
-            value={formData.role}
-            onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-            placeholder="e.g., Product Manager, Founder"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
-          />
-        </div>
-      </div>
-
-      <div>
-        <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
-          Phone <span className="text-gray-500 font-normal text-xs">(optional)</span>
-        </label>
-        <input
-          type="tel"
-          id="phone"
-          value={formData.phone}
-          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-          placeholder="+1 (555) 123-4567"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
-        />
-      </div>
-
       <div>
         <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
           What's Your Challenge? <span className="text-red-500">*</span>
@@ -159,6 +126,66 @@ export default function ContactForm() {
           placeholder="E.g., 'We struggle with roadmap prioritization and stakeholders always want everything ASAP. How do we say no without losing buy-in?'"
         />
         <p className="text-xs text-gray-500 mt-1">💡 Tip: Mention your biggest 2-3 challenges—I'll address them in the first call.</p>
+      </div>
+
+      {/* Optional Fields - Collapsible */}
+      <div className="border-t border-gray-200 pt-4">
+        <button
+          type="button"
+          onClick={() => setShowOptional(!showOptional)}
+          className="text-sm text-purple-600 hover:text-purple-700 font-medium flex items-center gap-2"
+        >
+          {showOptional ? '− Hide' : '+ Add'} optional details (company, role, phone)
+          <span className="text-xs text-gray-500">(helps me prepare better)</span>
+        </button>
+        
+        {showOptional && (
+          <div className="mt-4 space-y-4 animate-fade-in">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Company <span className="text-gray-500 font-normal text-xs">(optional)</span>
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  value={formData.company}
+                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                  placeholder="e.g., TechFlow, Inc."
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="role" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Your Role <span className="text-gray-500 font-normal text-xs">(optional)</span>
+                </label>
+                <input
+                  type="text"
+                  id="role"
+                  value={formData.role}
+                  onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                  placeholder="e.g., Product Manager, Founder"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                Phone <span className="text-gray-500 font-normal text-xs">(optional)</span>
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                placeholder="+1 (555) 123-4567"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
+              />
+            </div>
+          </div>
+        )}
       </div>
 
       <button

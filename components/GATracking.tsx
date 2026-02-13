@@ -168,12 +168,14 @@ export default function GATracking() {
 
   return (
     <>
+      {/* Defer GTM loading to improve LCP - load after main content */}
       <script
-        async
+        defer
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
       />
       <script
         id="gtag-init"
+        defer
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];

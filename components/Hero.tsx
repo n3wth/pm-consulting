@@ -6,6 +6,11 @@ export default function Hero() {
       className="relative min-h-screen flex items-center px-6 md:px-12 py-20"
       aria-label="Hero section - Product strategy consulting from Google PM"
     >
+      {/* Preload critical resources for LCP optimization */}
+      <link rel="preload" as="style" href="/_next/static/css/app.css" />
+      <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+      <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+      
       {/* Floating shapes background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
