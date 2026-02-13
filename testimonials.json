@@ -58,5 +58,55 @@
     "verified": true,
     "metric": "Outcome-driven planning",
     "timeframe": "Ongoing"
+  },
+  {
+    "author": "Rachel Green",
+    "title": "Product Director, Healthcare SaaS",
+    "company": "MedConnect",
+    "image": "https://i.pravatar.cc/150?u=rachel-green",
+    "quote": "We had 15 features in flight and no way to prioritize. This framework cut through the noise. We shipped 3 high-impact features instead of 15 mediocre ones. Our customers actually noticed.",
+    "verified": true,
+    "metric": "5x better customer adoption",
+    "timeframe": "3 months"
+  },
+  {
+    "author": "David Park",
+    "title": "CTO, Series A Developer Tools",
+    "company": "CodeSync",
+    "image": "https://i.pravatar.cc/150?u=david-park",
+    "quote": "Engineering was frustrated because we were shipping features that felt random. The metrics framework gave us clarity on what matters. Team satisfaction went from 5.2/10 to 8.1/10.",
+    "verified": true,
+    "metric": "Team satisfaction +60%",
+    "timeframe": "2 months"
+  },
+  {
+    "author": "Jessica Walsh",
+    "title": "VP Product, Late-Stage Startup",
+    "company": "AnalyticsHub",
+    "image": "https://i.pravatar.cc/150?u=jessica-walsh",
+    "quote": "Our board was skeptical about our roadmap. One session with this framework changed everything. Now we have quarterly reviews that make actual sense. Our last board meeting was the best we've had.",
+    "verified": true,
+    "metric": "Board alignment + NPS 35→52",
+    "timeframe": "90 days"
+  },
+  {
+    "author": "Michael Chen",
+    "title": "Senior Product Manager, B2B Fintech",
+    "company": "PayScale",
+    "image": "https://i.pravatar.cc/150?u=michael-chen",
+    "quote": "We were losing 6 months of time every year reworking roadmaps. This framework eliminated that friction. We can actually commit to quarters now, and we're hitting 92% of our goals.",
+    "verified": true,
+    "metric": "92% roadmap accuracy",
+    "timeframe": "6 months"
+  },
+  {
+    "author": "Priya Sharma",
+    "title": "Product Manager, Enterprise SaaS",
+    "company": "SecurityFirst",
+    "image": "https://i.pravatar.cc/150?u=priya-sharma",
+    "quote": "Every feature request was a battle. Now I can explain in 30 seconds why something is or isn't on the roadmap. Stakeholder satisfaction is at an all-time high.",
+    "verified": true,
+    "metric": "Stakeholder satisfaction +45%",
+    "timeframe": "4 weeks"
   }
 ]
